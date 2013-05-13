@@ -75,7 +75,11 @@
 			<artifactId>arquillian-junit-container</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+			<version>2.5.0</version>
+		</dependency>
 	</dependencies>
 
 	<profiles>
@@ -162,6 +166,20 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.openejb.maven</groupId>
+				<artifactId>tomee-maven-plugin</artifactId>
+				<version>1.0.1</version>
+				<configuration>
+					<tomeeVersion>1.5.2-SNAPSHOT</tomeeVersion>
+					<tomeeClassifier>plus</tomeeClassifier>
+					<removeDefaultWebapps>true</removeDefaultWebapps>
+					<removeTomeeWebapp>true</removeTomeeWebapp>
+					<debugPort>5005</debugPort>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.glassfish.embedded</groupId>
 				<artifactId>maven-embedded-glassfish-plugin</artifactId>
